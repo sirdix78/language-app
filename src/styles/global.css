@@ -1,0 +1,72 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Makes content expand and pushes footer down */
+}
+
+.routes-container {
+  flex: 1; /* Pushes footer to the bottom */
+}
+.bg-img {
+  height: 800px;
+  width: 100%;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-logo {
+  width: 100px;
+  margin-top: 30px;
+}
+.nav-link {
+  padding-top: 37px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+}
+.nav-link :hover {
+  color: red;
+  background-color: red;
+}
+.select-all {
+  background-color: #a5a5a5;
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  box-shadow: 1px 0px 5px 1px #ffffff;
+}
+.select-flag img {
+  height: 70px;
+  width: 70px;
+  padding: 10px;
+}
+
+.select-flag {
+  display: flex;
+  justify-content: center;
+}
+.select-lng h3 {
+  margin: 0;
+}
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  color: white;
+  bottom: 0;
+}
