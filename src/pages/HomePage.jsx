@@ -1,6 +1,6 @@
-import BackgroundImage from "../images/bg.webp";
-import AlFlag from "../images/alb-flag.png";
-import SpnFlag from "../images/spanish-flag.png";
+import BackgroundImage from "../images/al-sp.png";
+// import AlFlag from "../images/alb-flag.png";
+// import SpnFlag from "../images/spanish-flag.png";
 import React from "react";
 
 const HomePage = () => {
@@ -10,7 +10,7 @@ const HomePage = () => {
         <img src={BackgroundImage} className="bg-img"></img>
       </div>
 
-      <div className="select-all">
+      {/* <div className="select-all">
         <div className="select-lng">
           <h3>Select a language</h3>
         </div>
@@ -18,7 +18,7 @@ const HomePage = () => {
           <img src={AlFlag} className="bg-img"></img>
           <img src={SpnFlag} className="bg-img"></img>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

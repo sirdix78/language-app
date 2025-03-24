@@ -17,11 +17,10 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="about" element={<AboutPage />} />
-            <Route path="/student" element={<StudentPage />} />
+            <Route path="/student/:module" element={<StudentPage />} />
             <Route path="/teacher" element={<TeacherPage />} />
             <Route path="/modules/:type" element={<Modules />} />
             <Route path="*" element={<NotFoundPage />} />
-
           </Routes>
         </div>
       </div>

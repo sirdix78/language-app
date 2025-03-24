@@ -1,24 +1,57 @@
-import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const Modules = () => {
+  const { type } = useParams();
+  const [modules, setModules] = useState([]);
+  const [language, setLanguage] = useState("Albanian");
 
-const {type}=useParams()
-const modules= ["Module 1: History", "Module 2: Culture","Module 3: Tourism","Module 4: Music","Module 5: Food","Module 6: Fun Facts"]
-const listItems=modules.map(item=> <li>{item}</li>)
+  useEffect(() => {
+    axios
+      .get("http://localhost:5005/modules")
+      .then((response) => {
+        if (Array.isArray(response.data)) {
+          setModules(response.data);
+        } else {
+          console.error("Invalid data format:", response.data);
+        }
+      })
+      .catch((error) => console.error("Error fetching modules:", error));
+  }, []);
 
-return <ul><Link to ={type==="student"? "/student":"/teacher"} >{listItems}</Link></ul>;
+  const filteredModules = Array.isArray(modules)
+    ? modules.filter((module) => module.language === language)
+    : [];
+  console.log(filteredModules);
+  return (
+    <div className="module-container">
+      <label>Select Language: </label>
+      <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+        <option value="Albanian">Albanian</option>
+        <option value="Spanish">Spanish</option>
+      </select>
+      <ul>
+        {filteredModules.map((module) => {
+          console.log(module);
+          return (
+            <li key={module.id}>
+              <Link
+                className="module-link"
+                to={
+                  type === "student"
+                    ? `/student/${module.url}`
+                    : `/teacher/${module.url}`
+                }
+              >
+                {module.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
-
-
-            
-   
-    
-
-
-
-    
-  
-}
-
-export default Modules
+export default Modules;
