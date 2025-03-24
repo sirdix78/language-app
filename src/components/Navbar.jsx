@@ -12,10 +12,10 @@ const Navbar = () => {
         About
       </Link>
       <img src={logo} alt="logo" className="nav-logo" />
-      <Link className="nav-link" to="/student">
+      <Link className="nav-link" to="/modules/student">
         Student
       </Link>
-      <Link className="nav-link" to="/teacher">
+      <Link className="nav-link" to="/modules/teacher">
         Teacher
       </Link>
     </div>

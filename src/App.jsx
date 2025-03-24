@@ -6,6 +6,7 @@ import TeacherPage from "./pages/TeacherPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Modules from "./components/Modules";
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
             <Route path="about" element={<AboutPage />} />
             <Route path="/student" element={<StudentPage />} />
             <Route path="/teacher" element={<TeacherPage />} />
+            <Route path="/modules/:type" element={<Modules />} />
             <Route path="*" element={<NotFoundPage />} />
+
           </Routes>
         </div>
       </div>
