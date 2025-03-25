@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate, Link } from "react-router-dom";
-
+import ReactPlayer from "react-player";
 const StudentPage = () => {
   const [students, setStudents] = useState([]);
   const { module } = useParams();
@@ -30,7 +30,17 @@ const StudentPage = () => {
             <li key={student.id}>
               <h3>{student.title}</h3>
               <p>{student.description}</p>
-            </li>
+               <span>
+              {student.video && (
+                <ReactPlayer
+                  url={student.video}
+                  controls
+                  width="640px"
+                  height="360px"
+                />
+              )}
+              </span>
+           </li>
           ))
         ) : (
           <p>No students available in this language.</p>
