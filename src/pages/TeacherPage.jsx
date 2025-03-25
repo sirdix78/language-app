@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams, Link } from "react-router-dom";
+
+
 
 const TeacherPage = () => {
-  const [teachers, setTeachers] = useState([]);
-  const [language, setLanguage] = useState("Albanian");
+   const [teachers, setTeachers] = useState([]);
+ const { module } = useParams();
+  
+  //const [language, setLanguage] = useState("Albanian");
   useEffect(() => {
+
+    console.log("module id:", module);
+
     axios
-      .get("http://localhost:5005/teachers")
+      .get(`http://localhost:5005/teachers?url=${module}`)
       .then((response) => {
         if (Array.isArray(response.data)) {
           setTeachers(response.data);
@@ -15,23 +23,24 @@ const TeacherPage = () => {
         }
       })
       .catch((error) => console.error("Error fetching teachers:", error));
-  }, []);
-  const filteredTeachers =
-    teachers?.filter((teacher) => teacher.language === language) || [];
+  }, [module]);
+  /*const filteredTeachers =
+    teachers?.filter((teacher) => teacher.language === language) || [];*/
 
   return (
     <div>
-      <label>Select Language: </label>
+      {/* <label>Select Language: </label>
       <select value={language} onChange={(e) => setLanguage(e.target.value)}>
         <option value="Spanish">Spanish</option>
         <option value="Albanian">Albanian</option>
-      </select>
+      </select> */}
       <ul>
-        {filteredTeachers.length > 0 ? (
-          filteredTeachers.map((teacher) => (
+        {teachers.length > 0 ? (
+          teachers.map((teacher) => (
             <li key={teacher.id}>
               <h3>{teacher.title}</h3>
               <p>{teacher.description}</p>
+              <Link to={`/teacher/${teacher.url}`}>Go to student page</Link>
             </li>
           ))
         ) : (
