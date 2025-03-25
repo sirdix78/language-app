@@ -81,6 +81,14 @@ body,
   text-align: center;
   text-transform: uppercase;
 }
+.all-icons {
+  font-size: 30px;
+  text-align: center;
+}
+.all-icons svg {
+  margin: 10px;
+}
+
 .module-link {
   color: white;
   text-decoration: none;

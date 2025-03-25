@@ -7,6 +7,8 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Modules from "./components/Modules";
+import CreateTeacherPage from "./pages/CreateTeacherPage";
+import UpdateTeacherPage from "./pages/UpdateTeacherPage";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <Route path="about" element={<AboutPage />} />
             <Route path="/student/:module" element={<StudentPage />} />
             <Route path="/teacher/:module" element={<TeacherPage />} />
+            <Route path="/create/:module" element={<CreateTeacherPage />} />
+            <Route path="/update/:id" element={<UpdateTeacherPage />} />
             <Route path="/modules/:type" element={<Modules />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
