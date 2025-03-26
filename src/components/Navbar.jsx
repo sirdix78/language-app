@@ -6,12 +6,16 @@ const Navbar = () => {
   return (
     <div className="nav-container">
       <Link className="nav-link" to="/">
+        <h3>
+          AlSp<span>Lingo</span>
+        </h3>
+      </Link>
+      <Link className="nav-link" to="/">
         Home
       </Link>
       <Link className="nav-link" to="/about">
         About
       </Link>
-      <img src={logo} alt="logo" className="nav-logo" />
       <Link className="nav-link" to="/modules/student">
         Student
       </Link>

@@ -45,10 +45,10 @@ const TeacherPage = () => {
               <h3>{teacher.title}</h3>
               <p>{teacher.description}</p>
               <Link to={`/update/${teacher.id}`}>
-                <RiEditBoxLine />
+                <RiEditBoxLine className="icon" />
               </Link>
               <button onClick={() => handleDelete(teacher.id)}>
-                <RiDeleteBinLine /> Delete
+                <RiDeleteBinLine />
               </button>
             </li>
           ))
@@ -58,7 +58,7 @@ const TeacherPage = () => {
       </ul>
       <div className="all-icons">
         <Link to={`/create/${module}`}>
-          <LuSquarePlus />
+          <LuSquarePlus className="icon" />
         </Link>
       </div>
     </div>

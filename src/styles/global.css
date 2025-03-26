@@ -5,21 +5,15 @@ body,
   margin: auto;
   display: flex;
   flex-direction: column;
-  width: 1200px;
-}
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  width: 1400px;
+  color: white;
+  background-color: #002349;
+  font-family: "Oswald", sans-serif;
 }
 .app-container {
   display: flex;
   flex-direction: column;
   flex: 1; /* Makes content expand and pushes footer down */
-}
-
-.routes-container {
-  flex: 1; /* Pushes footer to the bottom */
 }
 .bg-img {
   height: 900px;
@@ -38,31 +32,54 @@ body,
   text-decoration: none;
   font-size: 20px;
   color: white;
+  font-weight: 700;
 }
 .nav-link :hover {
-  color: red;
-  background-color: red;
+  color: #957c3d;
 }
-/* .select-all {
-  background-color: #a5a5a5;
+.nav-container h3 {
+  margin: 0px;
+}
+.nav-container span {
+  color: #957c3d;
+}
+.header {
+  background-image: url("../images/1.jpg");
+  background-size: cover;
+  height: 900px;
+  color: white;
+}
+.about-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+  font-size: 20px;
+}
+.albanian-about {
+  padding-right: 30px;
+}
+.article-container {
+  display: flex;
+  justify-content: center;
+}
+
+.article-container article {
+  box-shadow: 0px 1px 6px -1px #cbc9c9;
+  margin: 30px;
+  padding: 20px;
+}
+.article-title {
   text-align: center;
-  width: 70%;
-  margin: auto;
-  box-shadow: 1px 0px 5px 1px #ffffff;
 }
-.select-flag img {
+.team {
+  display: flex;
+}
+.team img {
   height: 70px;
   width: 70px;
   padding: 10px;
 }
 
-.select-flag {
-  display: flex;
-  justify-content: center;
-}
-.select-lng h3 {
-  margin: 0;
-} */
 .module-container {
   text-align: center;
 }
@@ -77,28 +94,50 @@ body,
 .module-container ul li {
   padding: 20px;
   margin: 30px 0px;
-  border: 1px solid white;
+  box-shadow: 0px 1px 6px -1px #957c3d;
   text-align: center;
   text-transform: uppercase;
 }
-.all-icons {
-  font-size: 30px;
-  text-align: center;
-}
-.all-icons svg {
-  margin: 10px;
-}
-
 .module-link {
-  color: white;
   text-decoration: none;
   font-size: 20px;
   font-weight: 700;
+  color: #957c3d;
+}
+button,
+select {
+  background-color: #957c3d;
+  border: none;
+  margin: 5px;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+}
+.all-icons {
+  text-align: center;
+}
+textarea {
+  width: 50%;
+  display: block;
+  height: 100px;
 }
 
-.footer {
-  padding: 25px;
+.icon {
+  font-size: 20px;
   text-align: center;
+  margin: 10px;
+  background-color: #957c3d;
   color: white;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  border-top: 1px solid white;
+  padding: 35px;
   bottom: 0;
 }

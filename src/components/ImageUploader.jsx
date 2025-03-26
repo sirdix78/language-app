@@ -25,7 +25,7 @@ const ImageWithTextarea = () => {
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Enter text here..."
-        className="w-full p-2 border rounded"
+        className=""
       />
       <button
         onClick={handleSubmit}
