@@ -1,14 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
 const CreateTeacherPage = () => {
   const [id, setID] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const nav = useNavigate();
   const { module } = useParams();
-
+  const [language, setLanguage] = useState("Albanian");
+  const nav = useNavigate();
   function handleCreateLesson(event) {
     event.preventDefault();
     const newLesson = {
@@ -39,6 +38,11 @@ const CreateTeacherPage = () => {
   }
   return (
     <div>
+      <label>Select Language: </label>
+      <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+        <option value="Albanian">Albanian</option>
+        <option value="Spanish">Spanish</option>
+      </select>
       <form onSubmit={handleCreateLesson}>
         <label>
           Lesson title
@@ -65,5 +69,4 @@ const CreateTeacherPage = () => {
     </div>
   );
 };
-
 export default CreateTeacherPage;
