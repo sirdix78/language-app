@@ -7,7 +7,7 @@ const UpdateTeacherPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const { id } = useParams();
-  const nav = useNavigate();
+  // const nav = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5005/teachers/${id}`)
@@ -20,17 +20,17 @@ const UpdateTeacherPage = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  async function handleUpdateLesson(event) {
+  function handleUpdateLesson(event) {
     event.preventDefault();
     const updateLesson = {
-      title: title,
-      description: description,
+      title,
+      description,
     };
     axios
-      .put(`http://localhost:5005/teachers/${id}`, updateLesson)
+      .patch(`http://localhost:5005/teachers/${id}`, updateLesson)
       .then((res) => {
         console.log("successfully updated", res.data);
-        nav("/teacher");
+        // nav("/teacher/");
       })
       .catch((err) => console.log(err));
   }

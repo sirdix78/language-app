@@ -14,7 +14,8 @@ const CreateTeacherPage = () => {
     const newLesson = {
       title,
       description,
-      //   language,
+      url: module,
+      language: "albanian",
     };
     fetch("http://localhost:5005/teachers", {
       method: "POST",
@@ -26,7 +27,7 @@ const CreateTeacherPage = () => {
       .then((res) => res.json())
       .then((parsed) => {
         console.log("Fetch is working: ", parsed);
-        // nav("/teacher");
+        // nav(`/teacher/${module}`);
       })
       .catch((err) => console.log(err))
       .finally(() => {

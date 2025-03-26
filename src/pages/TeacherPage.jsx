@@ -8,7 +8,6 @@ import { RiDeleteBinLine } from "react-icons/ri";
 const TeacherPage = () => {
   const [teachers, setTeachers] = useState([]);
   const { module } = useParams();
-  // const nav = useNavigate();
 
   useEffect(() => {
     console.log("module id:", module);
@@ -25,6 +24,18 @@ const TeacherPage = () => {
       .catch((error) => console.error("Error fetching teachers:", error));
   }, [module]);
 
+  function handleDelete(id) {
+    axios
+      .delete(`http://localhost:5005/teachers/${id}`)
+      .then(() => {
+        const filteredTeachers = teachers.filter(
+          (teacher) => teacher.id !== id
+        );
+        setTeachers(filteredTeachers);
+      })
+      .catch((error) => console.error("Error deleting teacher:", error));
+  }
+
   return (
     <div>
       <ul>
@@ -36,6 +47,9 @@ const TeacherPage = () => {
               <Link to={`/update/${teacher.id}`}>
                 <RiEditBoxLine />
               </Link>
+              <button onClick={() => handleDelete(teacher.id)}>
+                <RiDeleteBinLine /> Delete
+              </button>
             </li>
           ))
         ) : (
@@ -46,8 +60,6 @@ const TeacherPage = () => {
         <Link to={`/create/${module}`}>
           <LuSquarePlus />
         </Link>
-
-        <RiDeleteBinLine />
       </div>
     </div>
   );
