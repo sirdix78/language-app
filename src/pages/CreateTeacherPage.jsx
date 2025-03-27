@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { API_URL } from "../config/apiConfig";
 const CreateTeacherPage = () => {
   const [id, setID] = useState("");
   const [title, setTitle] = useState("");
@@ -16,7 +17,7 @@ const CreateTeacherPage = () => {
       url: module,
       language: "albanian",
     };
-    fetch("http://localhost:5005/teachers", {
+    fetch(`${API_URL}/teachers`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

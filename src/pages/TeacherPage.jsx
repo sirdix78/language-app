@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { LuSquarePlus } from "react-icons/lu";
 import { RiEditBoxLine } from "react-icons/ri";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { API_URL } from "../config/apiConfig";
 
 const TeacherPage = () => {
   const [teachers, setTeachers] = useState([]);
@@ -13,7 +14,7 @@ const TeacherPage = () => {
     console.log("module id:", module);
 
     axios
-      .get(`http://localhost:5005/teachers?url=${module}`)
+      .get(`${API_URL}/teachers?url=${module}`)
       .then((response) => {
         if (Array.isArray(response.data)) {
           setTeachers(response.data);
@@ -26,7 +27,7 @@ const TeacherPage = () => {
 
   function handleDelete(id) {
     axios
-      .delete(`http://localhost:5005/teachers/${id}`)
+      .delete(`${API_URL}/teachers/${id}`)
       .then(() => {
         const filteredTeachers = teachers.filter(
           (teacher) => teacher.id !== id

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { API_URL } from "../config/apiConfig";
 import axios from "axios";
 
 const Modules = () => {
@@ -9,7 +10,7 @@ const Modules = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5005/modules")
+      .get(`${API_URL}/modules`)
       .then((response) => {
         if (Array.isArray(response.data)) {
           setModules(response.data);
@@ -46,7 +47,6 @@ const Modules = () => {
               >
                 {module.title}
               </Link>
-              
             </li>
           );
         })}

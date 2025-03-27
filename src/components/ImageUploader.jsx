@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import alFoodImg from "../images/taveKosi.webp";
+import { API_URL } from "../config/apiConfig";
+
 const ImageWithTextarea = () => {
   const [text, setText] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = async () => {
-    const response = await fetch("http://localhost:5005/imgAnswer", {
+    const response = await fetch(`${API_URL}/imgAnswer`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text }),

@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { API_URL } from "../config/apiConfig";
 import axios from "axios";
 
 const UpdateTeacherPage = () => {
@@ -10,7 +11,7 @@ const UpdateTeacherPage = () => {
   // const nav = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5005/teachers/${id}`)
+    fetch(`${API_URL}/teachers/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetch is working: ", data);
@@ -27,7 +28,7 @@ const UpdateTeacherPage = () => {
       description,
     };
     axios
-      .patch(`http://localhost:5005/teachers/${id}`, updateLesson)
+      .patch(`${API_URL}/teachers/${id}`, updateLesson)
       .then((res) => {
         console.log("successfully updated", res.data);
         // nav("/teacher/");

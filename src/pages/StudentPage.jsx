@@ -5,6 +5,7 @@ import ReactPlayer from "react-player";
 import PuzzleGame from "../components/PuzzleGame";
 import QuizGame from "../components/QuizGame";
 import ImageUploader from "../components/ImageUploader";
+import { API_URL } from "../config/apiConfig";
 const StudentPage = () => {
   const [students, setStudents] = useState([]);
   const { module } = useParams();
@@ -13,7 +14,7 @@ const StudentPage = () => {
   useEffect(() => {
     console.log("module id:", module);
     axios
-      .get(`http://localhost:5005/students?url=${module}`)
+      .get(`${API_URL}/students?url=${module}`)
       .then((response) => {
         console.log("received response:", response);
         if (Array.isArray(response.data)) {
