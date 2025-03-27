@@ -27,7 +27,7 @@ const StudentPage = () => {
   }, [module]);
 
   return (
-    <div>
+    <div className="student-container">
       <ul>
         {students.length > 0 ? (
           students.map((student) => (
@@ -35,19 +35,22 @@ const StudentPage = () => {
               <h3>{student.title}</h3>
               <p>{student.description}</p>
 
-              <span>
+              <span className="center-all">
                 {student.video && (
                   <ReactPlayer
                     url={student.video}
                     controls
                     width="640px"
                     height="360px"
+                    style={{ margin: "0 auto", display: "block" }}
                   />
                 )}
               </span>
               <PuzzleGame />
+              <hr></hr>
               <QuizGame />
-              <img src={student.image}></img>
+              <hr></hr>
+              <img className="student-img" src={student.image}></img>
               <ImageUploader />
             </li>
           ))
@@ -55,6 +58,15 @@ const StudentPage = () => {
           <p>No students available in this language.</p>
         )}
       </ul>
+
+      <button
+        onClick={() => {
+          navigate(-1);
+        }}
+        className="back-btn"
+      >
+        Back
+      </button>
     </div>
   );
 };

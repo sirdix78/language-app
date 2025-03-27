@@ -14,6 +14,9 @@ p {
   text-align: justify;
   font-size: 20px;
 }
+label {
+  font-size: 20px;
+}
 .app-container {
   display: flex;
   flex-direction: column;
@@ -48,10 +51,26 @@ p {
   color: #957c3d;
 }
 .header {
-  background-image: url("../images/1.jpg");
+  background-image: url("../images/book.jpg");
   background-size: cover;
   height: 900px;
   color: white;
+}
+.h-bg {
+  background-color: rgba(149, 124, 61, 0.3);
+}
+.h-bg h1 {
+  font-size: 70px;
+  padding: 10px 30px;
+}
+.header span {
+  color: #002349;
+}
+.first-paragraph {
+  font-size: 35px;
+  padding-left: 40px;
+  color: #002349;
+  font-weight: 800;
 }
 .about-container {
   display: flex;
@@ -69,24 +88,36 @@ p {
   display: flex;
   justify-content: center;
 }
-
+ul {
+  list-style: none;
+  padding: 0px;
+}
 .article-container article {
-  box-shadow: 0px 1px 6px -1px #cbc9c9;
+  box-shadow: 0px 1px 6px -1px #957c3d;
   margin: 30px;
   padding: 20px;
+  width: 500px;
 }
 .article-title {
   text-align: center;
+  padding-top: 20px;
+  font-size: 50px;
+}
+.span-article {
+  color: #957c3d;
 }
 .team {
   display: flex;
-  padding: 30px 0px;
+  padding: 70px 0px;
+  text-align: center;
 }
 .team img {
   width: 500px;
   margin-right: 20px;
 }
-
+.prof-team h3 {
+  font-size: 35px;
+}
 .module-container {
   text-align: center;
 }
@@ -112,34 +143,69 @@ p {
   color: #957c3d;
 }
 button,
-select {
+select,
+input {
   background-color: #957c3d;
   border: none;
-  margin: 5px;
+  margin: 10px;
   font-size: 20px;
   border-radius: 5px;
   padding: 5px 10px;
   color: white;
+  text-transform: uppercase;
 }
-.all-icons {
-  text-align: center;
-}
+input,
 textarea {
-  width: 50%;
-  display: block;
-  height: 100px;
+  background-color: #002349;
+  border: 1px solid #957c3d;
 }
-
+.puzzle-btn {
+  background-color: #002349;
+  border: 3px solid #957c3d;
+}
+.back-btn {
+  display: block;
+  margin: 20px auto;
+}
+.back-link {
+  text-decoration: none;
+}
 .icon {
   font-size: 20px;
   text-align: center;
   margin: 10px;
   background-color: #957c3d;
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   padding: 10px;
   border-radius: 5px;
+}
+.update-icon {
+  display: flex;
+  justify-content: center;
+}
+.all-icons {
+  text-align: center;
+}
+textarea {
+  width: 50%;
+  height: 100px;
+}
+.student-img {
+  margin: 50px auto;
+  display: block;
+}
+.student-container {
+  display: block;
+  margin: auto;
+}
+.center-all {
+  text-align: center;
+  margin: 50px;
+}
+.center-all p {
+  text-align: center;
 }
 .footer {
   display: flex;

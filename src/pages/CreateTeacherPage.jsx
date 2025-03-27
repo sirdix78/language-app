@@ -27,7 +27,7 @@ const CreateTeacherPage = () => {
       .then((res) => res.json())
       .then((parsed) => {
         console.log("Fetch is working: ", parsed);
-        // nav(`/teacher/${module}`);
+        nav(`/teacher/${module}`);
       })
       .catch((err) => console.log(err))
       .finally(() => {
@@ -35,36 +35,32 @@ const CreateTeacherPage = () => {
         setTitle("");
         setDescription("");
       });
-    nav(`/teacher/${module}`);
   }
   return (
-    <div>
+    <div className="teacher-page">
       <label>Select Language: </label>
       <select value={language} onChange={(e) => setLanguage(e.target.value)}>
         <option value="Albanian">Albanian</option>
         <option value="Spanish">Spanish</option>
       </select>
       <form onSubmit={handleCreateLesson}>
-        <label>
-          Lesson title
-          <input
-            type="text"
-            value={title}
-            onChange={(event) => {
-              setTitle(event.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Lesson description:
-          <input
-            type="text"
-            value={description}
-            onChange={(event) => {
-              setDescription(event.target.value);
-            }}
-          />
-        </label>
+        <label>Lesson title </label>
+        <input
+          type="text"
+          value={title}
+          onChange={(event) => {
+            setTitle(event.target.value);
+          }}
+        />
+
+        <label>Lesson description: </label>
+        <input
+          type="text"
+          value={description}
+          onChange={(event) => {
+            setDescription(event.target.value);
+          }}
+        />
         <button>Create</button>
       </form>
     </div>

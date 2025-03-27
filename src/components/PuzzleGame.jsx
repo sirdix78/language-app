@@ -1,100 +1,73 @@
 import React, { useState, useEffect } from "react";
 
 const PuzzleGame = () => {
-  // Fjalitë e mundshme
   const sentences = [
-    "I love learning new languages",
-    "React is a powerful library",
-    "Practice makes perfect",
-    "Coding challenges improve skills",
+    "Habitada inicialmente por íberos y celtas",
+    "Skënderbeu udhëhoqi per 25 vite",
+    "Una mezcla de influencias gitanas",
+    "La Costa Brava ofrece paisajes impresionantes",
+    "Butrinti është pjesë e UNESCOS",
+    "Sabina ha llevado la poesía a la música",
+    "Muzika Shqiptare përfshin iso-polifonine",
+    "El gazpacho y el salmorejo son sopas frías",
+    "Tavë kosi është një pjatë tradicionale",
+    "La vida es sueño",
+    "Jeta është një ënderr",
+    "Un buen plato de churros con chocolate",
   ];
 
-  // State për fjalinë origjinale
   const [originalSentence, setOriginalSentence] = useState("");
-  // State për versionin e përzier të fjalëve
   const [shuffledWords, setShuffledWords] = useState([]);
-  // State për fjalët që përdoruesi ka zgjedhur
   const [selectedWords, setSelectedWords] = useState([]);
 
-  // Funksioni për të nisur lojën dhe për të përzier fjalët
   const initializeGame = () => {
     const sentence = sentences[Math.floor(Math.random() * sentences.length)];
     setOriginalSentence(sentence);
     setShuffledWords(sentence.split(" ").sort(() => Math.random() - 0.5));
     setSelectedWords([]);
   };
-
-  // Përdor useEffect për të nisur lojën kur komponenti ngarkohet
   useEffect(() => {
     initializeGame();
   }, []);
-
-  // Shto fjalën e zgjedhur nga përdoruesi
   const handleWordClick = (word) => {
     if (!selectedWords.includes(word)) {
       setSelectedWords([...selectedWords, word]);
-      setShuffledWords(shuffledWords.filter((w) => w !== word)); // Hiq fjalën nga lista e opsioneve
+      setShuffledWords(shuffledWords.filter((w) => w !== word));
     }
   };
 
-  // Reset për të provuar përsëri
   const resetGame = () => {
     setSelectedWords([]);
     setShuffledWords(
       originalSentence.split(" ").sort(() => Math.random() - 0.5)
     );
   };
-
-  // Kontrollon nëse fjalia është e saktë
   const isCorrect = selectedWords.join(" ") === originalSentence;
-
   return (
-    <div className="p-4 max-w-md mx-auto text-center">
-      <h2 className="text-xl font-bold mb-4">Arrange the Words!</h2>
-      <p className="mb-2">Click on the words in the correct order:</p>
-
-      {/* Fjalët e përziera për të zgjedhur */}
-      <div className="flex flex-wrap justify-center gap-2">
+    <div className="center-all">
+      <h2>Arrange the Words!</h2>
+      <p>Click on the words in the correct order:</p>
+      <div>
         {shuffledWords.map((word, index) => (
-          <button
-            key={index}
-            className="px-3 py-1 bg-blue-500 text-white rounded-lg"
-            onClick={() => handleWordClick(word)}
-          >
+          <button key={index} onClick={() => handleWordClick(word)}>
             {word}
           </button>
         ))}
       </div>
-
-      {/* Fjalitë e zgjedhura */}
-      <div className="mt-4 p-2 bg-gray-100 min-h-[50px] border rounded">
-        {selectedWords.join(" ")}
-      </div>
-
-      {/* Butonat */}
-      <div className="mt-4 flex justify-center gap-2">
+      <div>{selectedWords.join(" ")}</div>
+      <div>
         {selectedWords.length > 0 && (
-          <button
-            onClick={resetGame}
-            className="px-3 py-1 bg-red-500 text-white rounded-lg"
-          >
+          <button onClick={resetGame} className="puzzle-btn">
             Reset
           </button>
         )}
-        <button
-          onClick={initializeGame}
-          className="px-3 py-1 bg-green-500 text-white rounded-lg"
-        >
+        <button onClick={initializeGame} className="puzzle-btn">
           New Puzzle
         </button>
       </div>
 
       {selectedWords.length === originalSentence.split(" ").length &&
-        (isCorrect ? (
-          <p className="text-green-600 mt-2">Correct! 🎉</p>
-        ) : (
-          <p className="text-red-600 mt-2">Try again! ❌</p>
-        ))}
+        (isCorrect ? <p>Correct! 🎉</p> : <p>Try again! ❌</p>)}
     </div>
   );
 };

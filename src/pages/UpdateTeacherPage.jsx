@@ -8,7 +8,7 @@ const UpdateTeacherPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const { id } = useParams();
-  // const nav = useNavigate();
+  const nav = useNavigate();
 
   useEffect(() => {
     fetch(`${API_URL}/teachers/${id}`)
@@ -31,7 +31,7 @@ const UpdateTeacherPage = () => {
       .patch(`${API_URL}/teachers/${id}`, updateLesson)
       .then((res) => {
         console.log("successfully updated", res.data);
-        // nav("/teacher/");
+        nav(`/teacher/${res.data.url}`);
       })
       .catch((err) => console.log(err));
   }

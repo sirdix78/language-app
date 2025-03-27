@@ -17,20 +17,16 @@ const ImageWithTextarea = () => {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto text-center">
+    <div className="center-all">
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Enter text here..."
+        placeholder="Describe the picture..."
         className=""
       />
-      <button
-        onClick={handleSubmit}
-        className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-lg"
-      >
-        Submit
-      </button>
-      {message && <p className="text-green-600 mt-2">{message}</p>}
+      <br></br>
+      <button onClick={handleSubmit}>Submit</button>
+      {message && <p className="text-green">{message}</p>}
     </div>
   );
 };

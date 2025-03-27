@@ -5,6 +5,7 @@ import { LuSquarePlus } from "react-icons/lu";
 import { RiEditBoxLine } from "react-icons/ri";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { API_URL } from "../config/apiConfig";
+import ReactPlayer from "react-player";
 
 const TeacherPage = () => {
   const [teachers, setTeachers] = useState([]);
@@ -45,12 +46,24 @@ const TeacherPage = () => {
             <li key={teacher.id}>
               <h3>{teacher.title}</h3>
               <p>{teacher.description}</p>
-              <Link to={`/update/${teacher.id}`}>
-                <RiEditBoxLine className="icon" />
-              </Link>
-              <button onClick={() => handleDelete(teacher.id)}>
-                <RiDeleteBinLine />
-              </button>
+              {teacher.video && (
+                <ReactPlayer
+                  url={teacher.video}
+                  controls
+                  width="640px"
+                  height="360px"
+                  style={{ margin: "0 auto", display: "block" }}
+                />
+              )}
+              <img className="student-img" src={teacher.image}></img>
+              <div className="update-icon">
+                <Link to={`/update/${teacher.id}`}>
+                  <RiEditBoxLine className="icon" />
+                </Link>
+                <button onClick={() => handleDelete(teacher.id)}>
+                  <RiDeleteBinLine />
+                </button>
+              </div>
             </li>
           ))
         ) : (
