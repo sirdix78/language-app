@@ -1,15 +1,9 @@
-import BackgroundImage from "../images/al-sp.png";
-import AlFlag from "../images/alb-flag.png";
-import SpnFlag from "../images/spanish-flag.png";
+import nativeLng from "../images/3.jpg";
 import React from "react";
 
 const HomePage = () => {
   return (
     <>
-      {/* <div>
-        <img src={BackgroundImage} className="bg-img"></img>
-      </div> */}
-
       <div className="header">
         <h1>Every language at you command</h1>
         <p>Alfonso will invent the text</p>
@@ -28,8 +22,7 @@ const HomePage = () => {
       </div>
       <section className="team">
         <div>
-          <img src={AlFlag} className="bg-img"></img>
-          <img src={SpnFlag} className="bg-img"></img>
+          <img src={nativeLng} alt="native-img"></img>
         </div>
         <div>
           <h2>Professional Team For Top-Notch Translation</h2>

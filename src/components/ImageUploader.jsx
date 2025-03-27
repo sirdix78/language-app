@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import alFoodImg from "../images/taveKosi.webp";
 import { API_URL } from "../config/apiConfig";
 
 const ImageWithTextarea = () => {
@@ -14,15 +13,11 @@ const ImageWithTextarea = () => {
     });
     const result = await response.json();
     setMessage(result.message);
-    setText(""); // Clear textarea after submitting
+    setText("");
   };
 
   return (
     <div className="p-4 max-w-md mx-auto text-center">
-      {/* Display image from public folder */}
-      {/* <img src={alFoodImg} alt="Displayed" className="" /> */}
-
-      {/* Textarea for input */}
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -35,7 +30,6 @@ const ImageWithTextarea = () => {
       >
         Submit
       </button>
-      {/* Success Message */}
       {message && <p className="text-green-600 mt-2">{message}</p>}
     </div>
   );

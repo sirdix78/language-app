@@ -1,10 +1,13 @@
 import React from "react";
+import aboutKristi from "../images/about-kristi.webp";
+import aboutAlfonso from "../images/about-alfonso.webp";
 
 const AboutPage = () => {
   return (
     <>
       <div className="about-container">
         <div className="albanian-about">
+          <img src={aboutKristi} className="about-img"></img>
           <h3>Pershendetje miq! </h3>
           <p>
             Unë jam Kristi, mesuesja juaj e gjuhes Shqipe. Aventura e të
@@ -16,6 +19,7 @@ const AboutPage = () => {
         </div>
 
         <div className="spanish-about">
+          <img src={aboutAlfonso} className="about-img"></img>
           <h3>Hey, ¿cómo lo llevas? </h3>
           <p>
             Soy Alfonso, tu profesor de español. Siempre he tenido vocación por
